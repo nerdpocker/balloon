@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>balloon notes</title>
+<title>balloon</title>
 <style>
 :root{
   box-sizing:border-box;
@@ -195,8 +195,8 @@ body{
     <div class="card">
       <h2 id="title"></h2>
       <p class="typed" id="typed"></p>
-      <button class="go" id="start">pecahkan balon 🎉</button>
-      <p class="hint">ketuk balon yang lewat untuk membaca pesannya</p>
+      <button class="go" id="start">Pop the balloons!</button>
+      <p class="hint">Pop a balloon and let the magic begin</p>
     </div>
     <div class="obj heart h-l front"><svg viewBox="0 0 100 90"><use href="#heart"/></svg></div>
     <div class="obj heart h-r front"><svg viewBox="0 0 100 90"><use href="#heart"/></svg></div>
@@ -204,18 +204,22 @@ body{
   </div>
 </div>
 
-<div id="top"><h1>🎈 klik balonnya</h1><div id="count"></div></div>
-<button id="again">main lagi</button>
+<div id="top"><h1>Pop the balloons 🎈</h1><div id="count"></div></div>
+<button id="again">Play again</button>
 
 <script>
 const lines = [
-  "kamu hebat ✨","terima kasih sudah bertahan sejauh ini","senyummu bikin hariku",
-  "kamu itu rumah yang tenang","aku bangga sama kamu","kamu pantas dapat yang terbaik",
-  "pelan-pelan saja, kamu sudah cukup","ada yang sayang kamu banget 💗",
-  "dunia lebih baik karena ada kamu","istirahat dulu ya, kamu sudah berusaha",
-  "kamu lucu banget kalau lagi serius","aku selalu di pihakmu","jangan lupa makan yang enak hari ini 🍜",
-  "kamu itu spesial","tiap hari bersamamu itu hadiah","tawa kamu itu candu 😭",
-  "kamu orang baik, jangan ragu","peluk erat untukmu 🫂","kamu selalu ada di pikiranku","sayang kamu 💌"
+  "You're my favorite person.","I'd choose you every time.","God, you're so beautiful.",
+  "I'm hopelessly in love with you.","You're all I ever want.","My heart belongs to you.",
+  "I could admire you forever.","You're my sweetest obsession.","I crave your presence.",
+  "I'd wait forever for you.","You're everything to me.","I'm so weak for you.",
+  "Loving you feels effortless.","I wish you were here.","I'd find you in every lifetime.",
+  "You're my favorite daydream.","I could never get enough of you.","My heart aches for you.",
+  "You're the one I yearn for.","I'll always long for you.","You're painfully beautiful.",
+  "I want every version of you.","You have my whole heart.","I'd fall for you endlessly.",
+  "You're worth every wait.","I adore everything about you.","No one compares to you.",
+  "I want to know every part of you.","You're my once in a lifetime.",
+  "If only you knew how much I adore you."
 ];
 const colors = ['#ff6b9d','#ffa94d','#ffd43b','#69db7c','#4dabf7','#9775fa','#ff8787'];
 const $ = id => document.getElementById(id);
@@ -243,7 +247,7 @@ function mix(hex, t){
 }
 
 /* intro: judul bergelombang, teks mengetik, hiasan */
-'ada kejutan buat kamu'.split(' ').forEach((w, wi, arr) => {
+'Something special awaits you, Sael'.split(' ').forEach((w, wi, arr) => {
   const word = document.createElement('span');
   word.style.marginRight = '.3em';
   [...w].forEach((ch, i) => {
@@ -256,7 +260,7 @@ function mix(hex, t){
   $('title').appendChild(word);
 });
 (function typeIt(){
-  const t = 'di dalam tiap balon ada pesan kecil dariku', el = $('typed'); let i = 0;
+  const t = 'Anraki left pieces of their heart inside these balloons', el = $('typed'); let i = 0;
   (function step(){ if (i <= t.length){ el.textContent = t.slice(0, i++); setTimeout(step, 45); } })();
 })();
 
@@ -290,7 +294,7 @@ document.querySelectorAll('.bl').forEach((el, i) => { el.innerHTML = cuteBalloon
 
 /* permainan */
 function burst(x, y) {
-  const set = ['💗','✨','🎉','💖','🌸'];
+  const set = [];
   for (let i = 0; i < 9; i++) {
     const p = document.createElement('div');
     p.className = 'pop'; p.textContent = set[i % set.length];
